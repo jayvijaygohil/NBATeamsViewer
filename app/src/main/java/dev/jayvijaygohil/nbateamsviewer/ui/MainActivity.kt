@@ -1,7 +1,8 @@
-package dev.jayvijaygohil.nbateamsviewer
+package dev.jayvijaygohil.nbateamsviewer.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dev.jayvijaygohil.nbateamsviewer.R
 
 class MainActivity : AppCompatActivity() {
 

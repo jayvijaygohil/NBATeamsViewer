@@ -1,7 +1,5 @@
-package dev.data.network
+package dev.jayvijaygohil.nbateamsviewer.data.network
 
-import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway
-import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway.Companion.CACHE_HEADER
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -34,12 +32,12 @@ class ScoreServerGatewayTest {
     }
 
     @After
-    fun cleanUp() {
+    fun tearDown() {
         server.shutdown()
     }
 
     @Test
-    fun test_CACHE_HEADER_IS_INCLUDED_IN_THE_REQUEST() {
+    fun `test cache header is included in the request`() {
         val cacheHeaderKey = "cache-control"
         val expectedCacheHeaderValue = "max-stale=86400"
 

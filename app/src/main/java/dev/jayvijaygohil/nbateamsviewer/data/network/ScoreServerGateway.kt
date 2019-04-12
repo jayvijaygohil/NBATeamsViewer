@@ -36,8 +36,6 @@ fun getNetworkCache(context: Context, networkCacheChildPath: String): Cache {
 }
 
 fun getOkHttpClient(cache: Cache): OkHttpClient {
-    CacheControl.Builder().build()
-
     return OkHttpClient
         .Builder()
         .cache(cache)

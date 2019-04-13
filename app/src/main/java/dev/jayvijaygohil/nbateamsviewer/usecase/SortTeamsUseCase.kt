@@ -1,11 +1,11 @@
 package dev.jayvijaygohil.nbateamsviewer.usecase
 
 import dev.jayvijaygohil.nbateamsviewer.model.Team
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsListUseCase.SortType
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsListUseCase.SortType.*
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.*
 import io.reactivex.Single
 
-interface SortTeamsListUseCase {
+interface SortTeamsUseCase {
     fun execute(list: List<Team>, sortType: SortType): Single<List<Team>>
 
     enum class SortType {
@@ -18,7 +18,7 @@ interface SortTeamsListUseCase {
     }
 }
 
-class SortTeamsUseCaseImpl : SortTeamsListUseCase {
+class SortTeamsUseCaseImpl : SortTeamsUseCase {
     override fun execute(list: List<Team>, sortType: SortType): Single<List<Team>> {
         return Single.just(list)
             .map { it.sortTeams(sortType) }

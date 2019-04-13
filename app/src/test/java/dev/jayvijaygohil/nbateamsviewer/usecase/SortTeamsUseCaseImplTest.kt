@@ -1,12 +1,12 @@
 package dev.jayvijaygohil.nbateamsviewer.usecase
 
 import dev.jayvijaygohil.nbateamsviewer.model.Team
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsListUseCase.SortType.*
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.*
 import org.junit.Before
 import org.junit.Test
 
 class SortTeamsUseCaseImplTest {
-    private lateinit var usecase: SortTeamsListUseCase
+    private lateinit var usecase: SortTeamsUseCase
 
     @Before
     fun setUp() {

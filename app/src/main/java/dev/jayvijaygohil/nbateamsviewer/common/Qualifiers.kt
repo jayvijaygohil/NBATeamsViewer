@@ -13,3 +13,9 @@ annotation class NetworkCacheChildPath
 
 @Qualifier
 annotation class NetworkCache
+
+@Qualifier
+annotation class MainThreadScheduler
+
+@Qualifier
+annotation class IoScheduler

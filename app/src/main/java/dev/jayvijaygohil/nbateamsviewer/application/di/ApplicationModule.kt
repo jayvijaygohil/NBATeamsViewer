@@ -11,6 +11,9 @@ import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway.Companio
 import dev.jayvijaygohil.nbateamsviewer.data.network.getNetworkCache
 import dev.jayvijaygohil.nbateamsviewer.data.network.getOkHttpClient
 import dev.jayvijaygohil.nbateamsviewer.data.network.getRetrofit
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -58,5 +61,17 @@ class ApplicationModule(private val application: Application) {
     @ApplicationContext
     fun provideApplicationContext(application: Application): Context {
         return application
+    }
+
+    @Provides
+    @MainThreadScheduler
+    fun provideMainThreadScheduler(): Scheduler {
+        return AndroidSchedulers.mainThread()
+    }
+
+    @Provides
+    @IoScheduler
+    fun provideIoScheduler(): Scheduler {
+        return Schedulers.io()
     }
 }

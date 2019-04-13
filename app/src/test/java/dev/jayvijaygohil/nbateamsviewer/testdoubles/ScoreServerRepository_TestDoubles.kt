@@ -1,26 +1,26 @@
 package dev.jayvijaygohil.nbateamsviewer.testdoubles
 
+import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerRepository
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.verifyNoMoreInteractions
-import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway
 import dev.jayvijaygohil.nbateamsviewer.model.Team
 import io.reactivex.Single
 
-class ScoreServerGatewayStub(
-    val mock: ScoreServerGateway = mock()
-) : ScoreServerGateway by mock {
+class ScoreServerRepositoryStub(
+    val mock: ScoreServerRepository = mock()
+) : ScoreServerRepository by mock {
     var list: List<Team> = emptyList()
 
-    override fun getTeamList(): Single<List<Team>> {
+    override fun getAllTeams(): Single<List<Team>> {
         return Single.just(list).also {
-            mock.getTeamList()
+            mock.getAllTeams()
         }
     }
 
-    fun verifyGetTeamListCalled(timesCalled: Int) {
-        verify(mock, times(timesCalled)).getTeamList()
+    fun verifyGetAllTeamsCalled(timesCalled: Int) {
+        verify(mock, times(timesCalled)).getAllTeams()
     }
 
     fun verifyNoNewInteractions() {

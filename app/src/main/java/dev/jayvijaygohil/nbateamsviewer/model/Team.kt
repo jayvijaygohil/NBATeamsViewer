@@ -7,17 +7,17 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Team(
     @field:SerializedName("id")
-    val teamId: Int,
+    val teamId: Int = 0,
 
     @field:SerializedName("full_name")
-    val teamName: String,
+    val teamName: String = "",
 
     @field:SerializedName("wins")
-    val teamWins: Int,
+    val teamWins: Int = 0,
 
     @field:SerializedName("losses")
-    val teamLosses: Int,
+    val teamLosses: Int = 0,
 
     @field:SerializedName("players")
-    val teamPlayers: List<Players>
+    val teamPlayers: List<Players> = emptyList()
 ) : Parcelable

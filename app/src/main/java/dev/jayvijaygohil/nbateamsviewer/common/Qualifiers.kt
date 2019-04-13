@@ -1,4 +1,4 @@
-package dev.jayvijaygohil.nbateamsviewer.di
+package dev.jayvijaygohil.nbateamsviewer.common
 
 import javax.inject.Qualifier
 

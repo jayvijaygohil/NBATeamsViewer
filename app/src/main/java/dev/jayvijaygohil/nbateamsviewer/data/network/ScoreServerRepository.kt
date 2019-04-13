@@ -8,7 +8,7 @@ interface ScoreServerRepository {
     fun getAllTeams(): Single<List<Team>>
 }
 
-class ScoreServerRepositoryImpl @Inject constructor(
+class ScoreServerRepositoryImpl (
     private val gateway: ScoreServerGateway
 ): ScoreServerRepository {
     override fun getAllTeams(): Single<List<Team>> {

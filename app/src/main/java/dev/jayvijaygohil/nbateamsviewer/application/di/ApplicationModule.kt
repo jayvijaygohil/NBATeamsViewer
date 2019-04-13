@@ -1,13 +1,16 @@
-package dev.jayvijaygohil.nbateamsviewer.di
+package dev.jayvijaygohil.nbateamsviewer.application.di
 
 import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import dev.jayvijaygohil.nbateamsviewer.data.network.*
+import dev.jayvijaygohil.nbateamsviewer.common.*
+import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway.Companion.CACHE_CHILD_PATH
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway.Companion.PROD_BASE_URL
-import dev.jayvijaygohil.nbateamsviewer.ui.MainActivity
+import dev.jayvijaygohil.nbateamsviewer.data.network.getNetworkCache
+import dev.jayvijaygohil.nbateamsviewer.data.network.getOkHttpClient
+import dev.jayvijaygohil.nbateamsviewer.data.network.getRetrofit
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -15,6 +18,12 @@ import javax.inject.Singleton
 
 @Module
 class ApplicationModule(private val application: Application) {
+
+    @Provides
+    @ApplicationScope
+    fun provideScoreServerGateway(retrofit: Retrofit): ScoreServerGateway {
+        return retrofit.create(ScoreServerGateway::class.java)
+    }
 
     @Provides
     @Singleton
@@ -34,15 +43,20 @@ class ApplicationModule(private val application: Application) {
     }
 
     @Provides
-    @ProdServerUrl
-    fun provideServerUrl() = PROD_BASE_URL
-
-    @Provides
     @NetworkCacheChildPath
-    fun provideNetworkCacheChildPath() = CACHE_CHILD_PATH
+    fun provideNetworkCacheChildPath(): String {
+        return CACHE_CHILD_PATH
+    }
 
     @Provides
-    @Singleton
+    @ProdServerUrl
+    fun provideServerUrl(): String {
+        return PROD_BASE_URL
+    }
+
+    @Provides
     @ApplicationContext
-    fun provideApplicationContext(): Context = application.applicationContext
+    fun provideApplicationContext(application: Application): Context {
+        return application
+    }
 }

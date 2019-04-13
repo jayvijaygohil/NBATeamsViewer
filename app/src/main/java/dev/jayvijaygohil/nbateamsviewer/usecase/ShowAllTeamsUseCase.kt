@@ -9,7 +9,7 @@ interface ShowAllTeamsUseCase {
     fun execute(): Single<List<Team>>
 }
 
-class ShowAllTeamsUseCaseImpl @Inject constructor(
+class ShowAllTeamsUseCaseImpl(
     private val repository: ScoreServerRepository
 ) : ShowAllTeamsUseCase {
     override fun execute(): Single<List<Team>> {

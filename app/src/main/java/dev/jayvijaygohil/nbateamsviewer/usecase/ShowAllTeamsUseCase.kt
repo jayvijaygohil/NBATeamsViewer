@@ -9,12 +9,12 @@ interface ShowAllTeamsUseCase {
 }
 
 class ShowAllTeamsUseCaseImpl(
-    private val repository: ScoreServerRepository
+        private val repository: ScoreServerRepository
 ) : ShowAllTeamsUseCase {
     override fun execute(): Single<List<Team>> {
         return repository
-            .getAllTeams()
-            .map { it.sortTeams().sortPlayers() }
+                .getAllTeams()
+                .map { it.sortTeams().sortPlayers() }
     }
 
     private fun List<Team>.sortTeams(): List<Team> {

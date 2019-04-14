@@ -4,7 +4,13 @@ import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import dev.jayvijaygohil.nbateamsviewer.common.*
+import dev.jayvijaygohil.nbateamsviewer.common.ApplicationContext
+import dev.jayvijaygohil.nbateamsviewer.common.ApplicationScope
+import dev.jayvijaygohil.nbateamsviewer.common.IoScheduler
+import dev.jayvijaygohil.nbateamsviewer.common.MainThreadScheduler
+import dev.jayvijaygohil.nbateamsviewer.common.NetworkCache
+import dev.jayvijaygohil.nbateamsviewer.common.NetworkCacheChildPath
+import dev.jayvijaygohil.nbateamsviewer.common.ProdServerUrl
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway.Companion.CACHE_CHILD_PATH
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway.Companion.PROD_BASE_URL

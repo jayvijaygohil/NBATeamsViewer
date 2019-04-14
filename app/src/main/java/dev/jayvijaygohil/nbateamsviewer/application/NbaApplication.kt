@@ -14,9 +14,9 @@ class NbaApplication : Application() {
         super.onCreate()
 
         applicationComponent =
-            DaggerApplicationComponent
-                .builder()
-                .applicationModule(ApplicationModule(this))
-                .build()
+                DaggerApplicationComponent
+                        .builder()
+                        .applicationModule(ApplicationModule(this))
+                        .build()
     }
 }

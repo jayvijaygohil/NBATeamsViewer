@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.jayvijaygohil.nbateamsviewer.R
 import dev.jayvijaygohil.nbateamsviewer.model.Team
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
-import kotlinx.android.synthetic.main.rv_team_item.view.*
+import kotlinx.android.synthetic.main.rv_team_item.view.tv_team_losses
+import kotlinx.android.synthetic.main.rv_team_item.view.tv_team_name
+import kotlinx.android.synthetic.main.rv_team_item.view.tv_team_wins
 
 class TeamListAdapter(private val singleActivity: SingleActivityContract.View) : RecyclerView.Adapter<TeamViewHolder>() {
     private val teamDiffCallback: DiffUtil.ItemCallback<Team>
@@ -65,7 +67,8 @@ class TeamListAdapter(private val singleActivity: SingleActivityContract.View) :
     }
 }
 
-class TeamViewHolder(private val singleActivity: SingleActivityContract.View, view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
+class TeamViewHolder(private val singleActivity: SingleActivityContract.View, view: View) : RecyclerView.ViewHolder(
+        view), View.OnClickListener {
     private lateinit var team: Team
 
     init {

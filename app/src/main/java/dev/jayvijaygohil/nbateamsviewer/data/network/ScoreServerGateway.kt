@@ -36,16 +36,16 @@ fun getNetworkCache(context: Context, networkCacheChildPath: String): Cache {
 
 fun getOkHttpClient(cache: Cache): OkHttpClient {
     return OkHttpClient
-        .Builder()
-        .cache(cache)
-        .build()
+            .Builder()
+            .cache(cache)
+            .build()
 }
 
 fun getRetrofit(baseUrl: String, client: OkHttpClient): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(baseUrl)
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .build()
+            .baseUrl(baseUrl)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
 }

@@ -15,10 +15,14 @@ import dev.jayvijaygohil.nbateamsviewer.common.DaggerFragment
 import dev.jayvijaygohil.nbateamsviewer.model.Team
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivity
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
-import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment.Companion.SORT_RESULT_INTENT_KEY
 import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment.Companion.SORT_RESULT_CODE
+import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment.Companion.SORT_RESULT_INTENT_KEY
 import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType
-import kotlinx.android.synthetic.main.fragment_team_list.*
+import kotlinx.android.synthetic.main.fragment_team_list.btn_error_retry
+import kotlinx.android.synthetic.main.fragment_team_list.error_container
+import kotlinx.android.synthetic.main.fragment_team_list.rv_all_team_list
+import kotlinx.android.synthetic.main.fragment_team_list.rv_swipe_refresh_container
+import kotlinx.android.synthetic.main.fragment_team_list.tv_error_message
 import javax.inject.Inject
 
 class TeamListFragment : DaggerFragment(), TeamListContract.View {

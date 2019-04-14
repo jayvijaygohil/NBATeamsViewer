@@ -2,7 +2,12 @@ package dev.jayvijaygohil.nbateamsviewer.usecase
 
 import dev.jayvijaygohil.nbateamsviewer.model.Team
 import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.*
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.HIGHEST_LOSSES
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.HIGHEST_WINS
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.LOWEST_LOSSES
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.LOWEST_WINS
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.NAME_ASC
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.NAME_DESC
 import io.reactivex.Single
 
 interface SortTeamsUseCase {
@@ -21,7 +26,7 @@ interface SortTeamsUseCase {
 class SortTeamsUseCaseImpl : SortTeamsUseCase {
     override fun execute(list: List<Team>, sortType: SortType): Single<List<Team>> {
         return Single.just(list)
-            .map { it.sortTeams(sortType) }
+                .map { it.sortTeams(sortType) }
     }
 
     private fun List<Team>.sortTeams(sortType: SortType): List<Team> {

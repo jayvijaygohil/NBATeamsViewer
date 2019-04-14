@@ -1,11 +1,116 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <!-- For old APIs -->
+        <item name="android:windowBackground">@color/colorBackground</item>
+
+        <item name="textAppearanceHeadline1">@style/Theme.AppTheme.TextAppearance.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/Theme.AppTheme.TextAppearance.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/Theme.AppTheme.TextAppearance.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/Theme.AppTheme.TextAppearance.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/Theme.AppTheme.TextAppearance.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/Theme.AppTheme.TextAppearance.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/Theme.AppTheme.TextAppearance.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/Theme.AppTheme.TextAppearance.Subtitle1</item>
+        <item name="textAppearanceBody1">@style/Theme.AppTheme.TextAppearance.Body1</item>
+        <item name="textAppearanceBody2">@style/Theme.AppTheme.TextAppearance.Body2</item>
+        <item name="textAppearanceButton">@style/Theme.AppTheme.TextAppearance.Button</item>
+        <item name="textAppearanceCaption">@style/Theme.AppTheme.TextAppearance.Caption</item>
+        <item name="textAppearanceOverline">@style/Theme.AppTheme.TextAppearance.Overline</item>
     </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/rubik_medium</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/rubik_medium</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/rubik_regular</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/rubik_regular</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/rubik_regular</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/rubik_regular</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Theme.AppTheme.MaterialButton.FabButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/colorBlackLight</item>
+        <item name="android:colorBackground">@color/colorWhite</item>
+    </style>
+
+    <!-- Team Card Item Style -->
+
+    <style name="Theme.AppTheme.TextAppearance.TeamCard.Title" parent="Theme.AppTheme.TextAppearance.Button">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.TeamCard.Body.Blue" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="Theme.AppTheme.TextAppearance.TeamCard.Body.Pink" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/colorPink</item>
+    </style>
+
+
 
 </resources>

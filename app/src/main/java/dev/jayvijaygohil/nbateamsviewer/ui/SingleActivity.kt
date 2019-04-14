@@ -5,6 +5,7 @@ import androidx.fragment.app.transaction
 import dev.jayvijaygohil.nbateamsviewer.R
 import dev.jayvijaygohil.nbateamsviewer.common.DaggerActivity
 import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.ui.teamdetail.TeamDetailFragment
 import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListFragment
 import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment
 
@@ -23,13 +24,16 @@ class SingleActivity : DaggerActivity(), SingleActivityContract.View {
 
     override fun launchTeamListFragment() {
         supportFragmentManager.transaction(now = false, allowStateLoss = false) {
-            add(R.id.fragment_container, TeamListFragment.newInstance(), TeamListFragment.TAG)
+            replace(R.id.fragment_container, TeamListFragment.newInstance(), TeamListFragment.TAG)
             addToBackStack(TeamListFragment.TAG)
         }
     }
 
     override fun launchTeamDetailsFragment(team: Team) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        supportFragmentManager.transaction(now = false, allowStateLoss = false) {
+            replace(R.id.fragment_container, TeamDetailFragment.newInstance(team), TeamDetailFragment.TAG)
+            addToBackStack(TeamDetailFragment.TAG)
+        }
     }
 
     override fun launchSortTeamFragment(requestingFragmentTag: String, requestCode: Int) {

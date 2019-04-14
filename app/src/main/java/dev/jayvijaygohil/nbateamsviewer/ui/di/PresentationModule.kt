@@ -11,6 +11,7 @@ import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerRepository
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerRepositoryImpl
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
+import dev.jayvijaygohil.nbateamsviewer.ui.teamdetail.TeamDetailAdapter
 import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListAdapter
 import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListContract
 import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListPresenter
@@ -41,6 +42,11 @@ class PresentationModule(private val activity: FragmentActivity) {
     @Provides
     fun provideTeamListAdapter(singleActivityViewContract: SingleActivityContract.View): TeamListAdapter {
         return TeamListAdapter(singleActivityViewContract)
+    }
+
+    @Provides
+    fun provideTeamDetailAdapter(): TeamDetailAdapter {
+        return TeamDetailAdapter()
     }
 
     @Provides

@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorWhite"
-    android:paddingTop="@dimen/gutter_16"
-    android:paddingBottom="@dimen/gutter_16"
+    android:paddingTop="@dimen/dp_16"
+    android:paddingBottom="@dimen/dp_16"
     tools:context=".ui.teamsort.TeamSortDialogFragment">
 
     <com.google.android.material.button.MaterialButton

@@ -3,7 +3,6 @@ package dev.jayvijaygohil.nbateamsviewer.usecase
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerRepository
 import dev.jayvijaygohil.nbateamsviewer.model.Team
 import io.reactivex.Single
-import javax.inject.Inject
 
 interface ShowAllTeamsUseCase {
     fun execute(): Single<List<Team>>

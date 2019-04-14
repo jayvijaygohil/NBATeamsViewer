@@ -6,7 +6,7 @@ import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType
 
 interface TeamListContract {
     interface View {
-        fun showAllTeams(list: List<Team>)
+        fun showTeams(list: List<Team>)
         fun showError()
     }
 

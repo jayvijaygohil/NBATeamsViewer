@@ -41,7 +41,7 @@ class TeamListPresenter @Inject constructor(
                         // Should not handle it manually by wrapping the return type with Response type.
                         view.showError()
                     } ?: run {
-                        view.showAllTeams(list)
+                        view.showTeams(list)
                     }
                 }.let { disposables.add(it) }
     }
@@ -56,7 +56,7 @@ class TeamListPresenter @Inject constructor(
                     error?.let {
                         view.showError()
                     } ?: run {
-                        view.showAllTeams(sortedList)
+                        view.showTeams(sortedList)
                     }
                 }.let { disposables.add(it) }
     }

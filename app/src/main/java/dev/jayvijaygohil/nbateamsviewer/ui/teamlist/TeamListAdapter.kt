@@ -56,7 +56,7 @@ class TeamListAdapter(private val singleActivity: SingleActivityContract.View) :
         asyncTeamListDiff.submitList(emptyList())
     }
 
-    private fun getTeamList(): List<Team> {
+    fun getTeamList(): List<Team> {
         return asyncTeamListDiff.currentList
     }
 

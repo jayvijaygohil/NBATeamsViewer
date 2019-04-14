@@ -9,7 +9,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/gutter_8"
+        android:paddingBottom="@dimen/gutter_8">
 
         <TextView
             android:id="@+id/tv_team_name"
@@ -30,7 +32,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/gutter_4"
-            android:paddingTop="@dimen/gutter_8"
             android:paddingEnd="@dimen/gutter_16"
             android:paddingBottom="@dimen/gutter_4"
             android:text="@string/title_won"
@@ -45,7 +46,6 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:paddingStart="@dimen/gutter_4"
-            android:paddingTop="@dimen/gutter_8"
             android:paddingEnd="@dimen/gutter_4"
             android:paddingBottom="@dimen/gutter_4"
             app:layout_constraintBottom_toTopOf="@+id/tv_team_losses"
@@ -62,7 +62,6 @@
             android:paddingStart="@dimen/gutter_4"
             android:paddingTop="@dimen/gutter_4"
             android:paddingEnd="@dimen/gutter_16"
-            android:paddingBottom="@dimen/gutter_8"
             android:text="@string/title_lost"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -76,7 +75,6 @@
             android:paddingStart="@dimen/gutter_4"
             android:paddingTop="@dimen/gutter_4"
             android:paddingEnd="@dimen/gutter_4"
-            android:paddingBottom="@dimen/gutter_8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tv_title_lost"
             app:layout_constraintStart_toStartOf="@+id/guideline"

@@ -1,7 +1,23 @@
 <resources>
     <string name="app_name">NBA Teams Viewer</string>
-    <string name="error_message">Something went wrong. Please try again.</string>
-    <string name="title_retry">Retry</string>
+
+    <!-- TeamListFragment - Team -->
     <string name="title_won">Won</string>
     <string name="title_lost">Lost</string>
+
+    <!-- TeamListFragment - Error -->
+    <string name="message_error">Something went wrong. Please try again.</string>
+    <string name="title_retry">Retry</string>
+
+    <!-- TeamSortFragment - Sort -->
+    <string name="title_name_asc">Name [Asc]</string>
+    <string name="title_name_des">Name [Des]</string>
+    <string name="title_highest_wins">Highest Wins</string>
+    <string name="title_lowest_wins">Lowest Wins</string>
+    <string name="title_highest_losses">Highest Losses</string>
+    <string name="title_lowest_losses">Lowest Losses</string>
+
+    <!-- TeamDetailFragment - Player -->
+    <string name="title_position">Position</string>
+    <string name="title_number">Number</string>
 </resources>

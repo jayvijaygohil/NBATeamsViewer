@@ -23,12 +23,12 @@
     <color name="colorOnBackground">@android:color/white</color>
 
     <!-- Independent Colors -->
+    <color name="colorTransparent">@android:color/transparent</color>
+    <color name="colorBlack">@android:color/black</color>
+    <color name="colorBlackLight">#1e1e1e</color>
+    <color name="colorWhite">@android:color/white</color>
+
     <color name="colorPink">#f70666</color>
     <color name="colorPinkDark">#d8004d</color>
     <color name="colorPinkRipple">#42f70666</color>
-
-    <color name="colorBlack">@android:color/black</color>
-    <color name="colorBlackLight">#1e1e1e</color>
-
-    <color name="colorWhite">@android:color/white</color>
 </resources>

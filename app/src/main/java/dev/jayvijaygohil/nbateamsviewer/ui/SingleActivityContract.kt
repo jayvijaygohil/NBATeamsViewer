@@ -4,8 +4,8 @@ import dev.jayvijaygohil.nbateamsviewer.model.Team
 
 interface SingleActivityContract {
     interface View {
-        fun launchTeamListFragment(list: List<Team>)
+        fun launchTeamListFragment()
         fun launchTeamDetailsFragment(team: Team)
-        fun launchSortTeamFragment()
+        fun launchSortTeamFragment(requestingFragmentTag: String, requestCode: Int)
     }
 }

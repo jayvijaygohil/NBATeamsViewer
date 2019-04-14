@@ -1,6 +1,7 @@
 package dev.jayvijaygohil.nbateamsviewer.ui.teamlist
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,9 @@ import dev.jayvijaygohil.nbateamsviewer.common.DaggerFragment
 import dev.jayvijaygohil.nbateamsviewer.model.Team
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivity
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
+import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment.Companion.SORT_RESULT_INTENT_KEY
+import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment.Companion.SORT_RESULT_CODE
+import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType
 import kotlinx.android.synthetic.main.fragment_team_list.*
 import javax.inject.Inject
 
@@ -51,6 +55,14 @@ class TeamListFragment : DaggerFragment(), TeamListContract.View {
 
         if (savedInstanceState == null) {
             presenter.fetchTeams()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == SORT_REQUEST_CODE && resultCode == SORT_RESULT_CODE && data != null) {
+            val sortTypeOrdinal = data.getIntExtra(SORT_RESULT_INTENT_KEY, 0)
+            val sortType = SortType.values()[sortTypeOrdinal]
+            presenter.sortTeams(adapter.getTeamList(), sortType)
         }
     }
 
@@ -100,7 +112,7 @@ class TeamListFragment : DaggerFragment(), TeamListContract.View {
         getFab().also {
             it.setImageResource(R.drawable.ic_filter)
             it.setOnClickListener {
-                singleActivityViewContract?.launchSortTeamFragment()
+                singleActivityViewContract?.launchSortTeamFragment(TAG, SORT_REQUEST_CODE)
             }
         }
     }

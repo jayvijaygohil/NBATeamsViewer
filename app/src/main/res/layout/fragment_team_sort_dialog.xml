@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:paddingTop="@dimen/gutter_16"
+    android:paddingBottom="@dimen/gutter_16"
+    tools:context=".ui.teamsort.TeamSortDialogFragment">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sort_asc"
+        style="@style/Theme.AppTheme.MaterialButton.SortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_name_asc"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sort_des"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sort_des"
+        style="@style/Theme.AppTheme.MaterialButton.SortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_name_des"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_sort_asc"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sort_hwins"
+        style="@style/Theme.AppTheme.MaterialButton.SortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_highest_wins"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sort_lwins"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sort_asc" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sort_lwins"
+        style="@style/Theme.AppTheme.MaterialButton.SortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_lowest_wins"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_sort_hwins"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sort_des" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sort_hlosses"
+        style="@style/Theme.AppTheme.MaterialButton.SortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_highest_losses"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sort_llosses"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sort_hwins" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sort_llosses"
+        style="@style/Theme.AppTheme.MaterialButton.SortButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_lowest_losses"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_sort_hlosses"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sort_lwins" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,6 @@ import android.content.Context
 import dev.jayvijaygohil.nbateamsviewer.model.Team
 import io.reactivex.Single
 import okhttp3.Cache
-import okhttp3.CacheControl
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -15,15 +14,15 @@ import java.io.File
 
 interface ScoreServerGateway {
     @Headers(CACHE_HEADER)
-    @GET("repos/scoremedia/nba-team-viewer/contents/input.json")
+    @GET("scoremedia/nba-team-viewer/master/input.json")
     fun getTeamList(): Single<List<Team>>
 
     companion object {
-        const val ONE_DAY_IN_SECONDS = 24L * 60L * 60L
+        private const val ONE_DAY_IN_SECONDS = 24L * 60L * 60L
         // max-stale indicates that the client is willing to accept a response that has exceeded its freshness lifetime
         // by no more than the specified number of seconds.
         const val CACHE_HEADER = "cache-control: max-stale=$ONE_DAY_IN_SECONDS"
-        const val PROD_BASE_URL = "https://api.github.com/"
+        const val PROD_BASE_URL = "https://raw.githubusercontent.com/"
         const val CACHE_CHILD_PATH = "teamListCache"
     }
 }

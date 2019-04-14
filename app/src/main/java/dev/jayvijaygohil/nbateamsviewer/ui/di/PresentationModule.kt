@@ -10,6 +10,8 @@ import dev.jayvijaygohil.nbateamsviewer.common.MainThreadScheduler
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerGateway
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerRepository
 import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerRepositoryImpl
+import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
+import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListAdapter
 import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListContract
 import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListPresenter
 import dev.jayvijaygohil.nbateamsviewer.usecase.ShowAllTeamsUseCase
@@ -20,6 +22,7 @@ import io.reactivex.Scheduler
 
 @Module
 class PresentationModule(private val activity: FragmentActivity) {
+
     @Provides
     fun provideTeamListPresenter(
             showAllTeamsUseCase: ShowAllTeamsUseCase,
@@ -33,6 +36,11 @@ class PresentationModule(private val activity: FragmentActivity) {
                 subscribeScheduler,
                 observeScheduler
         )
+    }
+
+    @Provides
+    fun provideTeamListAdapter(singleActivityViewContract: SingleActivityContract.View): TeamListAdapter {
+        return TeamListAdapter(singleActivityViewContract)
     }
 
     @Provides
@@ -51,7 +59,17 @@ class PresentationModule(private val activity: FragmentActivity) {
     }
 
     @Provides
-    fun provideContext(activity: Activity): Context {
+    fun provideSingleActivityViewContract(): SingleActivityContract.View {
+        return (activity as SingleActivityContract.View)
+    }
+
+    @Provides
+    fun provideSingleActivityContext(): Context {
+        return activity
+    }
+
+    @Provides
+    fun provideSingleActivity(): Activity {
         return activity
     }
 }

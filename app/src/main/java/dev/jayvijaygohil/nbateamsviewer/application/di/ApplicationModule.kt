@@ -17,7 +17,6 @@ import io.reactivex.schedulers.Schedulers
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import javax.inject.Singleton
 
 @Module
 class ApplicationModule(private val application: Application) {
@@ -29,7 +28,7 @@ class ApplicationModule(private val application: Application) {
     }
 
     @Provides
-    @Singleton
+    @ApplicationScope
     fun provideRetrofit(@ProdServerUrl baseUrl: String, client: OkHttpClient): Retrofit {
         return getRetrofit(baseUrl, client)
     }
@@ -59,7 +58,7 @@ class ApplicationModule(private val application: Application) {
 
     @Provides
     @ApplicationContext
-    fun provideApplicationContext(application: Application): Context {
+    fun provideApplicationContext(): Context {
         return application
     }
 

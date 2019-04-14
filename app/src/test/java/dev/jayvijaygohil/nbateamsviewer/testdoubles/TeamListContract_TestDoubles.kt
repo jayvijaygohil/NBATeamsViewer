@@ -12,9 +12,9 @@ class TeamListContractViewStub(
 ): TeamListContract.View by mock {
     lateinit var list: List<Team>
 
-    override fun showAllTeams(list: List<Team>) {
+    override fun showTeams(list: List<Team>) {
         this.list = list
-        mock.showAllTeams(list)
+        mock.showTeams(list)
     }
 
     override fun showError() {
@@ -22,7 +22,7 @@ class TeamListContractViewStub(
     }
 
     fun verifyShowAllTeamsCalled(timesCalled: Int) {
-        verify(mock, times(timesCalled)).showAllTeams(list)
+        verify(mock, times(timesCalled)).showTeams(list)
     }
 
     fun verifyShowErrorCalled(timesCalled: Int) {

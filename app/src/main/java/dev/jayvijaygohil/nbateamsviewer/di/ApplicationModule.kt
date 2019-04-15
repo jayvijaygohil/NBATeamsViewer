@@ -19,7 +19,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 
 @Module
-class ApplicationModule(private val application: Application) {
+class ApplicationModule {
 
     @Provides
     @ApplicationScope
@@ -28,7 +28,6 @@ class ApplicationModule(private val application: Application) {
     }
 
     @Provides
-    @ApplicationScope
     fun provideRetrofit(@ProdServerUrl baseUrl: String, client: OkHttpClient): Retrofit {
         return getRetrofit(baseUrl, client)
     }
@@ -57,20 +56,23 @@ class ApplicationModule(private val application: Application) {
     }
 
     @Provides
-    @ApplicationContext
-    fun provideApplicationContext(): Context {
-        return application
-    }
-
-    @Provides
+    @ApplicationScope
     @MainThreadScheduler
     fun provideMainThreadScheduler(): Scheduler {
         return AndroidSchedulers.mainThread()
     }
 
     @Provides
+    @ApplicationScope
     @IoScheduler
     fun provideIoScheduler(): Scheduler {
         return Schedulers.io()
+    }
+
+    @Provides
+    @ApplicationScope
+    @ApplicationContext
+    fun provideApplicationContext(application: Application): Context {
+        return application
     }
 }

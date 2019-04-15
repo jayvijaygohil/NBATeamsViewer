@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_END
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.android.support.DaggerFragment
 import dev.jayvijaygohil.nbateamsviewer.R
-import dev.jayvijaygohil.nbateamsviewer.common.DaggerFragment
 import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivity
 import kotlinx.android.synthetic.main.fragment_team_detail.*
@@ -22,11 +22,6 @@ class TeamDetailFragment : DaggerFragment() {
 
     @Inject
     lateinit var activityContext: Context
-
-    override fun onAttach(context: Context) {
-        component().injectTeamDetailFragment(this)
-        super.onAttach(context)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_team_detail, container, false)

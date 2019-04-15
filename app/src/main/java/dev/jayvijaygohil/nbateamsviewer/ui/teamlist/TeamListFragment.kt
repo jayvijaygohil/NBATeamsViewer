@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.android.support.DaggerFragment
 import dev.jayvijaygohil.nbateamsviewer.R
-import dev.jayvijaygohil.nbateamsviewer.common.DaggerFragment
 import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType
 import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType.NAME_ASC
@@ -37,11 +37,6 @@ class TeamListFragment : DaggerFragment(), TeamListContract.View {
 
     private var lastKnownSortType: SortType = NAME_ASC
     private var isNewFragmentInstance: Boolean = true
-
-    override fun onAttach(context: Context) {
-        component().injectTeamListFragment(this)
-        super.onAttach(context)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_team_list, container, false)

@@ -2,21 +2,19 @@ package dev.jayvijaygohil.nbateamsviewer.ui
 
 import android.os.Bundle
 import androidx.fragment.app.transaction
+import dagger.android.support.DaggerAppCompatActivity
 import dev.jayvijaygohil.nbateamsviewer.R
-import dev.jayvijaygohil.nbateamsviewer.common.DaggerActivity
 import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 import dev.jayvijaygohil.nbateamsviewer.ui.teamdetail.TeamDetailFragment
 import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListFragment
 import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment
 
-class SingleActivity : DaggerActivity(), SingleActivityContract.View {
+
+class SingleActivity : DaggerAppCompatActivity(), SingleActivityContract.View{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single)
-
-        component().injectSingleActivity(this)
-
         if (savedInstanceState == null) {
             launchTeamListFragment()
         }

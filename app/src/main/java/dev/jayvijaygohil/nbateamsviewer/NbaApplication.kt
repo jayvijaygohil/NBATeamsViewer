@@ -1,22 +1,29 @@
 package dev.jayvijaygohil.nbateamsviewer
 
+import android.app.Activity
 import android.app.Application
-import dev.jayvijaygohil.nbateamsviewer.di.ApplicationComponent
-import dev.jayvijaygohil.nbateamsviewer.di.ApplicationModule
+import dagger.android.AndroidInjection
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
 import dev.jayvijaygohil.nbateamsviewer.di.DaggerApplicationComponent
+import javax.inject.Inject
 
-class NbaApplication : Application() {
-
-    lateinit var applicationComponent: ApplicationComponent
-        private set
+class NbaApplication : Application(), HasActivityInjector {
+    @Inject
+    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
 
     override fun onCreate() {
         super.onCreate()
 
-        applicationComponent =
-            DaggerApplicationComponent
+        DaggerApplicationComponent
                 .builder()
-                .applicationModule(ApplicationModule(this))
+                .newApplicationModule(this)
                 .build()
+                .inject(this)
+    }
+
+    override fun activityInjector(): AndroidInjector<Activity> {
+        return activityInjector
     }
 }

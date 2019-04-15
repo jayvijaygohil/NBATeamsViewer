@@ -4,8 +4,6 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dev.jayvijaygohil.nbateamsviewer.common.SingleActivityScope
-import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivity
-import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
 
 @Module
 class SingleActivityModule {

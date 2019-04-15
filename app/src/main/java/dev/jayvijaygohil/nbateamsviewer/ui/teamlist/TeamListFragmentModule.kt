@@ -12,9 +12,6 @@ import dev.jayvijaygohil.nbateamsviewer.domain.usecase.ShowAllTeamsUseCaseImpl
 import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase
 import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCaseImpl
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
-import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListAdapter
-import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListContract
-import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListPresenter
 import io.reactivex.Scheduler
 
 @Module

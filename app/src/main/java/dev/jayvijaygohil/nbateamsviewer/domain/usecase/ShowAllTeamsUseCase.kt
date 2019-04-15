@@ -1,7 +1,7 @@
 package dev.jayvijaygohil.nbateamsviewer.domain.usecase
 
-import dev.jayvijaygohil.nbateamsviewer.domain.repository.ScoreServerRepository
 import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.repository.ScoreServerRepository
 import io.reactivex.Single
 
 interface ShowAllTeamsUseCase {

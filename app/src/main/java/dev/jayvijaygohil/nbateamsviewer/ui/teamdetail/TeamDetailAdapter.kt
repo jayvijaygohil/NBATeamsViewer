@@ -5,10 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.jayvijaygohil.nbateamsviewer.R
-import dev.jayvijaygohil.nbateamsviewer.model.Players
-import kotlinx.android.synthetic.main.rv_player_item.view.tv_player_name
-import kotlinx.android.synthetic.main.rv_player_item.view.tv_player_number
-import kotlinx.android.synthetic.main.rv_player_item.view.tv_player_position
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Players
+import kotlinx.android.synthetic.main.rv_player_item.view.*
 
 class TeamDetailAdapter : RecyclerView.Adapter<PlayerViewHolder>() {
     private var playerList = emptyList<Players>()

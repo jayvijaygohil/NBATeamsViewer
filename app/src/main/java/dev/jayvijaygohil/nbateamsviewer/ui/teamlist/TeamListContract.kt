@@ -1,8 +1,8 @@
 package dev.jayvijaygohil.nbateamsviewer.ui.teamlist
 
 import dev.jayvijaygohil.nbateamsviewer.common.BasePresenter
-import dev.jayvijaygohil.nbateamsviewer.model.Team
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType
 
 interface TeamListContract {
     interface View {

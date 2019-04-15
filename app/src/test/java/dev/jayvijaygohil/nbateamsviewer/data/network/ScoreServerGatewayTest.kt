@@ -1,5 +1,6 @@
 package dev.jayvijaygohil.nbateamsviewer.data.network
 
+import dev.jayvijaygohil.nbateamsviewer.domain.data.network.ScoreServerGateway
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

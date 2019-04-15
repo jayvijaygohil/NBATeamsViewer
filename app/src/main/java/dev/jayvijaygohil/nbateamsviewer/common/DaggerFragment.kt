@@ -2,10 +2,10 @@ package dev.jayvijaygohil.nbateamsviewer.common
 
 import androidx.annotation.UiThread
 import androidx.fragment.app.Fragment
-import dev.jayvijaygohil.nbateamsviewer.application.NbaApplication
-import dev.jayvijaygohil.nbateamsviewer.application.di.ApplicationComponent
-import dev.jayvijaygohil.nbateamsviewer.ui.di.PresentationComponent
-import dev.jayvijaygohil.nbateamsviewer.ui.di.PresentationModule
+import dev.jayvijaygohil.nbateamsviewer.NbaApplication
+import dev.jayvijaygohil.nbateamsviewer.di.ApplicationComponent
+import dev.jayvijaygohil.nbateamsviewer.di.PresentationComponent
+import dev.jayvijaygohil.nbateamsviewer.di.PresentationModule
 
 
 abstract class DaggerFragment : Fragment() {
@@ -13,7 +13,6 @@ abstract class DaggerFragment : Fragment() {
     private lateinit var applicationComponent: ApplicationComponent
     private lateinit var presentationComponent: PresentationComponent
 
-    // Always call this method inside onAttach or else the application reference will be null
     @UiThread
     protected fun component(): PresentationComponent {
         applicationComponent = (activity!!.application!! as NbaApplication).applicationComponent
@@ -23,7 +22,7 @@ abstract class DaggerFragment : Fragment() {
         } else {
             mIsInjectorUsed = true
             applicationComponent
-                    .newPresentationComponent(PresentationModule(activity!!))
+                .newPresentationComponent(PresentationModule(activity!!))
         }
 
         return presentationComponent

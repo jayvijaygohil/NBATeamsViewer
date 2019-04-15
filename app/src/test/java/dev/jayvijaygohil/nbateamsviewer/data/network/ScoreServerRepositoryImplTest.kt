@@ -1,5 +1,7 @@
 package dev.jayvijaygohil.nbateamsviewer.data.network
 
+import dev.jayvijaygohil.nbateamsviewer.domain.repository.ScoreServerRepository
+import dev.jayvijaygohil.nbateamsviewer.domain.repository.ScoreServerRepositoryImpl
 import dev.jayvijaygohil.nbateamsviewer.testdoubles.ScoreServerGatewayStub
 import org.junit.Before
 import org.junit.Test

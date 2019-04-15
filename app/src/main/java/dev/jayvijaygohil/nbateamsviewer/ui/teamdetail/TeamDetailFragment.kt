@@ -11,12 +11,9 @@ import com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.jayvijaygohil.nbateamsviewer.R
 import dev.jayvijaygohil.nbateamsviewer.common.DaggerFragment
-import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivity
-import kotlinx.android.synthetic.main.fragment_team_detail.rv_player_list
-import kotlinx.android.synthetic.main.fragment_team_detail.tv_team_losses
-import kotlinx.android.synthetic.main.fragment_team_detail.tv_team_name
-import kotlinx.android.synthetic.main.fragment_team_detail.tv_team_wins
+import kotlinx.android.synthetic.main.fragment_team_detail.*
 import javax.inject.Inject
 
 class TeamDetailFragment : DaggerFragment() {

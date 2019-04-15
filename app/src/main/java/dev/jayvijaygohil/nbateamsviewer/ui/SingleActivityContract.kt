@@ -1,6 +1,6 @@
 package dev.jayvijaygohil.nbateamsviewer.ui
 
-import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 
 interface SingleActivityContract {
     interface View {

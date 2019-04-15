@@ -1,11 +1,11 @@
 package dev.jayvijaygohil.nbateamsviewer.testdoubles
 
-import dev.jayvijaygohil.nbateamsviewer.data.network.ScoreServerRepository
+import dev.jayvijaygohil.nbateamsviewer.domain.repository.ScoreServerRepository
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.verifyNoMoreInteractions
-import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 import io.reactivex.Single
 
 class ScoreServerRepositoryStub(

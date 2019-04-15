@@ -1,10 +1,10 @@
 package dev.jayvijaygohil.nbateamsviewer.ui.teamlist
 
-import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 import dev.jayvijaygohil.nbateamsviewer.testdoubles.ShowAllTeamsUseCaseStub
 import dev.jayvijaygohil.nbateamsviewer.testdoubles.SortTeamsUseCaseStub
 import dev.jayvijaygohil.nbateamsviewer.testdoubles.TeamListContractViewStub
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.NAME_DESC
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType.NAME_DESC
 import io.reactivex.schedulers.Schedulers
 import org.junit.Before
 import org.junit.Test

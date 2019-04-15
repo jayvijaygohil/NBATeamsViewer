@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.transaction
 import dev.jayvijaygohil.nbateamsviewer.R
 import dev.jayvijaygohil.nbateamsviewer.common.DaggerActivity
-import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 import dev.jayvijaygohil.nbateamsviewer.ui.teamdetail.TeamDetailFragment
 import dev.jayvijaygohil.nbateamsviewer.ui.teamlist.TeamListFragment
 import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment

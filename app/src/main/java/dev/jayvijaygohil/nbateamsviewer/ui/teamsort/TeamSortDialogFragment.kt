@@ -7,19 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dev.jayvijaygohil.nbateamsviewer.R
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.HIGHEST_LOSSES
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.HIGHEST_WINS
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.LOWEST_LOSSES
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.LOWEST_WINS
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.NAME_ASC
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.NAME_DESC
-import kotlinx.android.synthetic.main.fragment_team_sort_dialog.btn_sort_asc
-import kotlinx.android.synthetic.main.fragment_team_sort_dialog.btn_sort_des
-import kotlinx.android.synthetic.main.fragment_team_sort_dialog.btn_sort_hlosses
-import kotlinx.android.synthetic.main.fragment_team_sort_dialog.btn_sort_hwins
-import kotlinx.android.synthetic.main.fragment_team_sort_dialog.btn_sort_llosses
-import kotlinx.android.synthetic.main.fragment_team_sort_dialog.btn_sort_lwins
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType.*
+import kotlinx.android.synthetic.main.fragment_team_sort_dialog.*
 
 class TeamSortDialogFragment : BottomSheetDialogFragment() {
 
@@ -66,9 +56,9 @@ class TeamSortDialogFragment : BottomSheetDialogFragment() {
         }
 
         targetFragment?.onActivityResult(
-                targetRequestCode,
-                SORT_RESULT_CODE,
-                intent
+            targetRequestCode,
+            SORT_RESULT_CODE,
+            intent
         )
     }
 

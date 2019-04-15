@@ -12,24 +12,19 @@ import com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.jayvijaygohil.nbateamsviewer.R
 import dev.jayvijaygohil.nbateamsviewer.common.DaggerFragment
-import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType.NAME_ASC
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivity
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
 import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment.Companion.SORT_RESULT_CODE
 import dev.jayvijaygohil.nbateamsviewer.ui.teamsort.TeamSortDialogFragment.Companion.SORT_RESULT_INTENT_KEY
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.NAME_ASC
-import kotlinx.android.synthetic.main.fragment_team_list.btn_error_retry
-import kotlinx.android.synthetic.main.fragment_team_list.error_container
-import kotlinx.android.synthetic.main.fragment_team_list.rv_all_team_list
-import kotlinx.android.synthetic.main.fragment_team_list.rv_swipe_refresh_container
-import kotlinx.android.synthetic.main.fragment_team_list.tv_error_message
+import kotlinx.android.synthetic.main.fragment_team_list.*
 import javax.inject.Inject
 
 class TeamListFragment : DaggerFragment(), TeamListContract.View {
     @Inject
-    @JvmField
-    var singleActivityViewContract: SingleActivityContract.View? = null
+    lateinit var singleActivityViewContract: SingleActivityContract.View
 
     @Inject
     lateinit var activityContext: Context
@@ -42,9 +37,6 @@ class TeamListFragment : DaggerFragment(), TeamListContract.View {
 
     private var lastKnownSortType: SortType = NAME_ASC
     private var isNewFragmentInstance: Boolean = true
-
-    private val TEAM_LIST_BUNDLE_KEY = "team_list"
-    private val LAST_KNOWN_SORT_TYPE_BUNDLE_KEY = "last_known_sort_type"
 
     override fun onAttach(context: Context) {
         component().injectTeamListFragment(this)
@@ -92,13 +84,17 @@ class TeamListFragment : DaggerFragment(), TeamListContract.View {
 
     override fun showTeams(list: List<Team>) {
         getFab().also { it.show() }
-        rv_swipe_refresh_container.isRefreshing = false
         rv_all_team_list.visibility = View.VISIBLE
         error_container.visibility = View.GONE
         tv_error_message.visibility = View.GONE
         btn_error_retry.visibility = View.GONE
 
-        adapter.addNewTeamList(list)
+        if (rv_swipe_refresh_container.isRefreshing) {
+            presenter.sortTeams(list, lastKnownSortType)
+            rv_swipe_refresh_container.isRefreshing = false
+        } else {
+            adapter.addNewTeamList(list)
+        }
     }
 
     override fun showError() {
@@ -136,7 +132,7 @@ class TeamListFragment : DaggerFragment(), TeamListContract.View {
         getFab().also {
             it.setImageResource(R.drawable.ic_filter)
             it.setOnClickListener {
-                singleActivityViewContract?.launchSortTeamFragment(TAG, SORT_REQUEST_CODE)
+                singleActivityViewContract.launchSortTeamFragment(TAG, SORT_REQUEST_CODE)
             }
         }
     }
@@ -169,7 +165,7 @@ class TeamListFragment : DaggerFragment(), TeamListContract.View {
 
     override fun onDetach() {
         super.onDetach()
-        singleActivityViewContract = null
+        presenter.detachView()
     }
 
     companion object {
@@ -177,6 +173,9 @@ class TeamListFragment : DaggerFragment(), TeamListContract.View {
         fun newInstance() = TeamListFragment()
 
         const val SORT_REQUEST_CODE = 5000
+        const val TEAM_LIST_BUNDLE_KEY = "team_list"
+        const val LAST_KNOWN_SORT_TYPE_BUNDLE_KEY = "last_known_sort_type"
+
         const val TAG = "[TeamListFragment]"
     }
 }

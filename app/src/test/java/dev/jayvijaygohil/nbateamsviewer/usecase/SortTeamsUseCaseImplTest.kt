@@ -1,7 +1,9 @@
 package dev.jayvijaygohil.nbateamsviewer.usecase
 
-import dev.jayvijaygohil.nbateamsviewer.model.Team
-import dev.jayvijaygohil.nbateamsviewer.usecase.SortTeamsUseCase.SortType.*
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCase.SortType.*
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.SortTeamsUseCaseImpl
 import org.junit.Before
 import org.junit.Test
 

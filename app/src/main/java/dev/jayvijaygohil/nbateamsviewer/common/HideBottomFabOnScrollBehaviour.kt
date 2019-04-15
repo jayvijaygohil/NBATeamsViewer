@@ -27,14 +27,18 @@ class HideBottomFabOnScrollBehaviour : FloatingActionButton.Behavior {
         return super.onLayoutChild(parent, child, layoutDirection)
     }
 
-    override fun onStartNestedScroll(coordinatorLayout: CoordinatorLayout, child: FloatingActionButton,
-                                     directTargetChild: View, target: View, axes: Int, type: Int): Boolean {
+    override fun onStartNestedScroll(
+        coordinatorLayout: CoordinatorLayout, child: FloatingActionButton,
+        directTargetChild: View, target: View, axes: Int, type: Int
+    ): Boolean {
         return type == ViewCompat.TYPE_TOUCH && axes == ViewCompat.SCROLL_AXIS_VERTICAL
     }
 
-    override fun onNestedScroll(coordinatorLayout: CoordinatorLayout, child: FloatingActionButton, target: View,
-                                dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int, type: Int,
-                                consumed: IntArray) {
+    override fun onNestedScroll(
+        coordinatorLayout: CoordinatorLayout, child: FloatingActionButton, target: View,
+        dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int, type: Int,
+        consumed: IntArray
+    ) {
         if (currentState != STATE_SCROLLED_DOWN && dyConsumed > 0) {
             slideDown(child)
         } else if (currentState != STATE_SCROLLED_UP && dyConsumed < 0) {
@@ -49,7 +53,8 @@ class HideBottomFabOnScrollBehaviour : FloatingActionButton.Behavior {
         }
         currentState = STATE_SCROLLED_UP
         animateChildTo(
-                child, 0, ENTER_ANIMATION_DURATION.toLong(), AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR)
+            child, 0, ENTER_ANIMATION_DURATION.toLong(), AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR
+        )
     }
 
     private fun slideDown(child: FloatingActionButton) {
@@ -61,19 +66,21 @@ class HideBottomFabOnScrollBehaviour : FloatingActionButton.Behavior {
         animateChildTo(child, height, EXIT_ANIMATION_DURATION.toLong(), AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR)
     }
 
-    private fun animateChildTo(child: FloatingActionButton, targetY: Int, duration: Long,
-                               interpolator: TimeInterpolator) {
+    private fun animateChildTo(
+        child: FloatingActionButton, targetY: Int, duration: Long,
+        interpolator: TimeInterpolator
+    ) {
         currentAnimator = child
-                .animate()
-                .translationY(targetY.toFloat())
-                .setInterpolator(interpolator)
-                .setDuration(duration)
-                .setListener(
-                        object : AnimatorListenerAdapter() {
-                            override fun onAnimationEnd(animation: Animator) {
-                                currentAnimator = null
-                            }
-                        })
+            .animate()
+            .translationY(targetY.toFloat())
+            .setInterpolator(interpolator)
+            .setDuration(duration)
+            .setListener(
+                object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        currentAnimator = null
+                    }
+                })
     }
 
     companion object {

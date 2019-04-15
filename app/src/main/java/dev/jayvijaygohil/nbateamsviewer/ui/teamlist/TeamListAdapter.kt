@@ -7,13 +7,12 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import dev.jayvijaygohil.nbateamsviewer.R
-import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
 import dev.jayvijaygohil.nbateamsviewer.ui.SingleActivityContract
-import kotlinx.android.synthetic.main.rv_team_item.view.tv_team_losses
-import kotlinx.android.synthetic.main.rv_team_item.view.tv_team_name
-import kotlinx.android.synthetic.main.rv_team_item.view.tv_team_wins
+import kotlinx.android.synthetic.main.rv_team_item.view.*
 
-class TeamListAdapter(private val singleActivity: SingleActivityContract.View) : RecyclerView.Adapter<TeamViewHolder>() {
+class TeamListAdapter(private val singleActivity: SingleActivityContract.View) :
+    RecyclerView.Adapter<TeamViewHolder>() {
     private val teamDiffCallback: DiffUtil.ItemCallback<Team>
     private val asyncTeamListDiff: AsyncListDiffer<Team>
 
@@ -68,7 +67,8 @@ class TeamListAdapter(private val singleActivity: SingleActivityContract.View) :
 }
 
 class TeamViewHolder(private val singleActivity: SingleActivityContract.View, view: View) : RecyclerView.ViewHolder(
-        view), View.OnClickListener {
+    view
+), View.OnClickListener {
     private lateinit var team: Team
 
     init {

@@ -1,7 +1,9 @@
 package dev.jayvijaygohil.nbateamsviewer.usecase
 
-import dev.jayvijaygohil.nbateamsviewer.model.Players
-import dev.jayvijaygohil.nbateamsviewer.model.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Players
+import dev.jayvijaygohil.nbateamsviewer.domain.entity.Team
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.ShowAllTeamsUseCase
+import dev.jayvijaygohil.nbateamsviewer.domain.usecase.ShowAllTeamsUseCaseImpl
 import dev.jayvijaygohil.nbateamsviewer.testdoubles.ScoreServerRepositoryStub
 import org.junit.Before
 import org.junit.Test
